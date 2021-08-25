@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    image: web-page:production
+    container_name: 'web-page-container'
+    #volumes:
+    #  - ./:/web-page
+    ports:
+      - 3000:3000
+    networks:
+      - web-network
+    environment:
+      - APP_ENV=production
+      - APP_URL= http://localhost
+      - NEXT_PUBLIC_API_HOST_URL=https://dev-api.the-hat-pack.com/v1/
+      - NEXT_PUBLIC_APP_URL=http://localhost/
+      - NEXT_PUBLIC_APP_ENV=production
+
+
+networks:
+  web-network:
+    name: web-page-network

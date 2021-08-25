@@ -1,0 +1,26 @@
+FROM node:fermium-alpine3.13
+
+ENV APP_ENV production
+ENV NEXT_PUBLIC_APP_ENV production
+ENV NEXT_PUBLIC_API_HOST_URL https://dev-api.the-hat-pack.com/v1/
+ENV NEXT_PUBLIC_APP_URL http://the-hat-pack.com
+ENV API_PORT 3000
+ENV NEXT_PUBLIC_API_PORT 3000
+
+# Create app directory
+RUN mkdir -p /web-page-develop
+WORKDIR /web-page-develop
+
+# Copying source files
+COPY package.json /web-page-develop/
+COPY yarn.lock /web-page-develop/
+
+# Installing dependencies
+RUN yarn install
+
+COPY . /web-page-develop
+
+# Running the app
+RUN yarn run build
+EXPOSE 3000
+CMD ["yarn", "start"]
