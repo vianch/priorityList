@@ -4,7 +4,7 @@ export const errorStyles = createUseStyles(
   ({ breakpoints, palette, typography }: CustomThemeProps) => {
     return {
       title: {
-        color: palette.midGray,
+        color: palette.error,
         textAlign: "center",
         fontSize: "4rem",
         fontStyle: "normal",
@@ -20,7 +20,6 @@ export const errorStyles = createUseStyles(
       },
 
       description: {
-        fontFamily: typography.secondaryFont,
         fontWeight: 400,
         color: palette.midGray,
         textAlign: "center",

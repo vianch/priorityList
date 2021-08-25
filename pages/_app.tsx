@@ -1,8 +1,12 @@
 import React, { useEffect, ReactElement } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { ThemeProvider } from "react-jss";
-
+import injectSheet, {
+  ThemeProvider,
+  JssProvider,
+  SheetsRegistry,
+  createGenerateId,
+} from "react-jss";
 // CONSTANTS AND MODELS
 import { WEB_TITLE } from "@/lib/common/constants";
 
@@ -11,14 +15,17 @@ import { wrapper } from "store/store";
 
 // Styles
 import jssTheme from "theme";
+import globalStyles from "theme/global";
 
 function NextPage({ Component, pageProps }: AppProps): ReactElement {
-  const removeServerCSS = () => {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector("#jss-server-side");
+  const sheets = new SheetsRegistry();
+  const generateId = createGenerateId();
 
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
+  const removeServerCSS = () => {
+    const ssStyles = document.getElementById("server-side-styles");
+
+    if (ssStyles) {
+      ssStyles.parentNode.removeChild(ssStyles);
     }
   };
 
@@ -37,11 +44,13 @@ function NextPage({ Component, pageProps }: AppProps): ReactElement {
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
 
-      <ThemeProvider theme={jssTheme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <JssProvider registry={sheets} generateId={generateId}>
+        <ThemeProvider theme={jssTheme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </JssProvider>
     </React.Fragment>
   );
 }
 
-export default wrapper.withRedux(NextPage);
+export default wrapper.withRedux(injectSheet(globalStyles)(NextPage));

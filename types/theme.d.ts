@@ -1,4 +1,4 @@
-type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl";
+type Breakpoint = "xxs" | "xs" | "sm" | "md" | "lg" | "xl";
 type JustifyContent = "flex-start" | "center" | "flex-end";
 
 interface BreakPoints {
@@ -14,7 +14,7 @@ interface ObjectString {
 }
 
 interface CustomThemeProps {
-  breakpoints: BreakPoints;
-  palette: ObjectString;
-  typography: ObjectString;
+  breakpoints?: BreakPoints;
+  palette?: ObjectString;
+  typography?: ObjectString;
 }

@@ -3,10 +3,10 @@ import Image from "next/image";
 
 // Constants
 import { HttpCodes } from "@/lib/common/constants";
+import { Logger } from "@/lib/common";
 
 // Styles
-import { errorStyles } from "./styles/error.styles";
-import { Logger } from "@/lib/common";
+import { errorStyles } from "./error.styles";
 
 interface ErrorStructureProps {
   statusCode: number;

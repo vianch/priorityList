@@ -1,13 +1,9 @@
-const primaryFont = "Cormorant";
-const secondaryFont = "Averta STD";
-const sansSerif = "sans-serif";
-const serif = "serif";
+const primaryFont = "Source Sans Pro, sans-serif";
+const secondaryFont = "Poppins, sans-serif";
 
 const typography = {
   primaryFont,
   secondaryFont,
-  sansSerif,
-  serif,
 };
 
 export default typography;
