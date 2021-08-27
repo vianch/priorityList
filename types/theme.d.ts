@@ -1,5 +1,6 @@
-type Breakpoint = "xxs" | "xs" | "sm" | "md" | "lg" | "xl";
+type Breakpoint = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "out";
 type JustifyContent = "flex-start" | "center" | "flex-end";
+type Variant = "primary" | "secondary" | "accent" | "disabled";
 
 interface BreakPoints {
   keys: Breakpoint[];

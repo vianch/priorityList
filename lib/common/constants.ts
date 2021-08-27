@@ -42,3 +42,6 @@ export enum ErrorMessages {
   notFoundError = "Error 404: Data could not be loaded!",
   notSet = "Error: Data could not be set!",
 }
+
+export const maxCharsDescription = 256;
+export const maxCharsTitle = 25;

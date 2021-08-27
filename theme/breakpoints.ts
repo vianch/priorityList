@@ -1,4 +1,5 @@
 const values = {
+  out: 271,
   xxs: 380,
   xs: 480,
   sm: 768,
@@ -8,7 +9,7 @@ const values = {
 };
 
 const breakpoints = {
-  keys: ["xxs", "xs", "sm", "md", "lg", "xl"],
+  keys: ["xxs", "xs", "sm", "md", "lg", "xl", "out"],
   values,
   up: (key: Breakpoint): string => `@media (min-width: ${values[key]}px)`,
   down: (key: Breakpoint): string => `@media (max-width: ${values[key]}px)`,

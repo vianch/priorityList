@@ -30,7 +30,7 @@ export const avatarStyles = createUseStyles(({ palette }: CustomThemeProps) => {
 
     avatarDescription: {
       fontSize: "1.6rem",
-      color: palette.fontLight,
+      color: palette.greyLight,
       fontWeight: "bold",
     },
   };

@@ -6,13 +6,14 @@ export const taskListStyles = createUseStyles(
       container: {
         justifyContent: "center",
         alignItems: "center",
-        background: palette.primaryLight,
+        background: palette.primary10,
         minHeight: "5rem",
         borderRadius: "0.6rem",
         flexFlow: "column nowrap",
         padding: "1.5rem",
         width: "calc(100% - 3rem)",
         transition: "all 1s",
+        marginBottom: "5rem",
       },
     };
   }
